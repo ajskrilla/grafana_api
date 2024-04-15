@@ -77,7 +77,7 @@ class Annotations(Base):
             panel_id=None,
             time_from=None,
             time_to=None,
-            tags=[],
+            tags=None,
             text=None,
     ):
 
@@ -92,6 +92,7 @@ class Annotations(Base):
         :param text:
         :return:
         """
+        tags = [] if tags is None else tags
 
         annotations_path = "/annotations"
         payload = {
@@ -110,7 +111,7 @@ class Annotations(Base):
     def add_annotation_graphite(
             self,
             what=None,
-            tags=[],
+            tags=None,
             when=None,
             data=None,
     ):
@@ -123,6 +124,7 @@ class Annotations(Base):
         :param data:
         :return:
         """
+        tags = [] if tags is None else tags
 
         annotations_path = "/annotations/graphite"
         payload = {
@@ -141,7 +143,7 @@ class Annotations(Base):
             annotations_id,
             time_from=None,
             time_to=None,
-            tags=[],
+            tags=None,
             text=None,
     ):
         """
@@ -153,6 +155,7 @@ class Annotations(Base):
         :param text:
         :return:
         """
+        tags = [] if tags is None else tags
         annotations_path = "/annotations/{}".format(annotations_id)
         payload = {
             "time": time_from,
@@ -170,7 +173,7 @@ class Annotations(Base):
             annotations_id,
             time_from=None,
             time_to=None,
-            tags=[],
+            tags=None,
             text=None,
     ):
         """
@@ -183,6 +186,7 @@ class Annotations(Base):
         :param text:
         :return:
         """
+        tags = [] if tags is None else tags
         annotations_path = "/annotations/{}".format(annotations_id)
         payload = {}
 
